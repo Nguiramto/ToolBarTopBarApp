@@ -1,5 +1,9 @@
 package com.example.toolbartopbarapp;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +18,9 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class SearchFragment extends Fragment {
+
+    private RecyclerView recyclerView;
+    private CategoryAdapter categoryAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -59,6 +66,47 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+// Initialize RecyclerView
+        recyclerView = view.findViewById(R.id.recyclerView);
+
+// Set LayoutManager
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false)
+        );
+
+// Initialize adapter
+        categoryAdapter = new CategoryAdapter(getContext());
+
+// Set data
+        categoryAdapter.setData(getListCategory());
+
+// Attach adapter
+        recyclerView.setAdapter(categoryAdapter);
+
+        return view;
+    }
+
+    private List<Category> getListCategory() {
+
+        List<Category> listCategory = new ArrayList<>();
+
+        List<CardItem> listItems = new ArrayList<>();
+
+        listItems.add(new CardItem(R.drawable.heart_health, "Heart Health", "Monitor your heart rate"));
+        listItems.add(new CardItem(R.drawable.doctor_consultation, "Consultation", "Talk to certified doctors"));
+        listItems.add(new CardItem(R.drawable.medicatiom_reminder, "Medication", "Track your daily meds"));
+        listItems.add(new CardItem(R.drawable.lab_results, "Lab Results", "View your test reports"));
+        listItems.add(new CardItem(R.drawable.emergency_help, "Emergency", "Get help instantly"));
+        listItems.add(new CardItem(R.drawable.healthy_food, "Nutrition", "Eat healthy daily"));
+        listItems.add(new CardItem(R.drawable.mental_wellness, "Mental Health", "Care for your mind"));
+        listItems.add(new CardItem(R.drawable.stay_active, "Stay Active", "Keep your body fit"));
+
+        listCategory.add(new Category("Health Services", listItems));
+        listCategory.add(new Category("Wellness", listItems));
+        listCategory.add(new Category("Quick Access", listItems));
+
+        return listCategory;
     }
 }

@@ -1,6 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!--Splash theme-->
+    <style name="Theme.ToolBarTopBarApp.Splash" parent="Theme.SplashScreen">
+
+        <item name="windowSplashScreenBackground">@color/black_red</item>
+        <!-- Background color -->
+
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_icon</item>
+        <!-- Splash icon -->
+
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <!-- Animation duration -->
+
+        <item name="postSplashScreenTheme">@style/Theme.ToolBarTopBarApp</item>
+        <!-- Main theme after splash -->
+
+    </style>
     <!-- Base application theme. -->
-    <style name="Theme.BottomNavigationDemo" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ToolBarTopBarApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/lavender</item>
         <item name="colorPrimaryVariant">@color/lavender</item>
