@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom Navigation Menu for Medical App -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Home Screen -->
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <!-- Search Treatments -->
+    <item
+        android:id="@+id/search_treatment"
+        android:title="Search"
+        android:icon="@drawable/search_treatment_24" />
+
+    <!-- Empty item for FAB spacing (DO NOT REMOVE) -->
+    <item
+        android:title=""/>
+
+    <!-- Appointments -->
+    <item
+        android:id="@+id/book_appointment"
+        android:title="Appointments"
+        android:icon="@drawable/book_appointment_24" />
+
+    <!-- Profile / Records -->
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile_24" />
+
+</menu>
